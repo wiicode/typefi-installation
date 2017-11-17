@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>Label</key>
+<string>com.adobe.ids.launchd.8470</string>
+<key>OnDemand</key>
+<false/>
+<key>ProgramArguments</key>
+<array>
+<string>/Applications/Adobe InDesign CC Server 2018/InDesignServer</string>
+<string>-port</string>
+<string>8470</string>
+<string>-LogToApplicationEventLog</string>
+</array>
+<key>RunAtLoad</key>
+<true/>
+</dict>
+</plist>
