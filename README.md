@@ -1,6 +1,8 @@
-# Typefi User Conference - Baltimore - 2019
+# Typefi Installer Automation
 
-## Typefi Installer (Workgroup)
+## Configuration and Usage
+
+### Configuration Files
 
 Inside the `conf` folder you will find a number of `*.conf` files.  Open each one and adjust your settings as follows:
 
@@ -9,18 +11,7 @@ Inside the `conf` folder you will find a number of `*.conf` files.  Open each on
 3. `manifest.conf` is likely current and does not need any changes.
 4. `system.conf` needs you to determine what products to install.
 
-### Usage.
-
-After you setup the configuration, run `typefi_installer.ps1`.  Be sure to `Run as Administrator` and configure `Set-ExecutionPolicy Unrestricted`.
-
-#### manifest.conf Parameters
-
-* `server`, must be the latest available version of `Typefi Server for Workgroup`
-* `designer`, must be the latest available version of `Typefi Designer Server`
-* `typefitter`, must be the latest available version of `Typefi Typefitter Server`
-
-
-#### system.conf Parameters
+### system.conf Parameters
 
 * `distraction`, *true* if you want to get rick-rolled. Default is *false*.
 * `server`, *true* to install Typefi Workgroup Server. Default is *true*.
@@ -34,21 +25,33 @@ After you setup the configuration, run `typefi_installer.ps1`.  Be sure to `Run 
 * `demos`, *true* to preload _HelloWorld_.  Default is *false*.
 * `launchchrome`, *true* start the default browser. Default is *true*.
 
-## Typefi Installer (Desktop)
+## Typefi Installer for Workgroup
+
+### manifest.conf Parameters
+
+* `server`, must be the latest available version of `Typefi Server for Workgroup`
+* `designer`, must be the latest available version of `Typefi Designer Server`
+* `typefitter`, must be the latest available version of `Typefi Typefitter Server`
 
 ### Usage.
 
-After you setup the configuration, run `typefi_installer_desktop.ps1`.  Be sure to `Run as Administrator` and configure `Set-ExecutionPolicy Unrestricted`.
+After you setup the configuration, run `typefi_installer.ps1`.  Be sure to `Run as Administrator` and configure `Set-ExecutionPolicy Unrestricted`.
 
-#### manifest.conf Parameters
+## Typefi Installer for Desktop
+
+### manifest.conf Parameters
 
 * `server_desktop`, must be the latest available version of `Typefi Server for Desktop`
 * `designer_desktop`, must be the latest available version of `Typefi Designer`
 * `typefitter_desktop`, must be the latest available version of `Typefi Typefitter`
 
-#### system.conf Parameters
+### system.conf Parameters
 
 See the Typefi Server for Workgroup section. 
+
+### Usage.
+
+After you setup the configuration, run `typefi_installer_desktop.ps1`.  Be sure to `Run as Administrator` and configure `Set-ExecutionPolicy Unrestricted`.
 
 
 ## Typefi Harvester (Desktop and Workgroup)
