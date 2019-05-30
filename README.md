@@ -14,7 +14,7 @@ Inside the `conf` folder you will find a number of `*.conf` files.  Open each on
 ### system.conf Parameters
 
 * `distraction`, *true* if you want to get rick-rolled. Default is *false*.
-* `server`, *true* to install Typefi Workgroup Server. Default is *true*.
+* `server`, *true* to install Typefi Server. Default is *true*.
 * `override_config`, *true* to install TUC2019 config. Default is *false*.
 * `plugins`, *true* to install typefi-server-plugins listed in your `plugins_install.txt`. Default is *true*.
 * `designer`, *true* to install Typefi Designer Server. Default is *true*.
@@ -44,10 +44,6 @@ After you setup the configuration, run `typefi_installer.ps1`.  Be sure to `Run 
 * `server_desktop`, must be the latest available version of `Typefi Server for Desktop`
 * `designer_desktop`, must be the latest available version of `Typefi Designer`
 * `typefitter_desktop`, must be the latest available version of `Typefi Typefitter`
-
-### system.conf Parameters
-
-See the Typefi Server for Workgroup section. 
 
 ### Usage.
 
