@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "localhost",
+        "host": "localhost",
+        "port": "8470",
+        "version": "CC2019 (14.0.2.324)",
+        "filestorePath": "",
+        "pdfPresets": [
+            "[High Quality Print]",
+            "[PDF/X-1a:2001]",
+            "[PDF/X-3:2002]",
+            "[PDF/X-4:2008]",
+            "[Press Quality]",
+            "[Smallest File Size]"
+        ]
+    }
+]

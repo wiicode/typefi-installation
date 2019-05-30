@@ -1,0 +1,159 @@
+{
+  "name": "MathTools License Report",
+  "actions": [
+    {
+      "id": "4",
+      "type": "cxml-to-indd",
+      "uiVersion": "7",
+      "description": "Create InDesign document",
+      "displayname": "Create InDesign document",
+      "inputs": [
+        {
+          "name": "input",
+          "value": "/tp8_movemen_license/resources/MathToolsLicenceContent.cxml"
+        },
+        {
+          "name": "output",
+          "value": "output-1.indd"
+        },
+        {
+          "name": "template",
+          "value": "/tp8_movemen_license/resources/MathToolsLicenceTemplate.indd"
+        },
+        {
+          "name": "firstPageNumber",
+          "value": "1"
+        },
+        {
+          "name": "engine",
+          "value": "cc2019a"
+        },
+        {
+          "name": "documentstart",
+          "value": "/tp8_movemen_license/resources/GenerateMathToolsLicenseReport.jsxbin"
+        },
+        {
+          "name": "sectionstart",
+          "value": ""
+        },
+        {
+          "name": "spreadstart",
+          "value": ""
+        },
+        {
+          "name": "pagestart",
+          "value": ""
+        },
+        {
+          "name": "spillend",
+          "value": ""
+        },
+        {
+          "name": "pageend",
+          "value": ""
+        },
+        {
+          "name": "spreadend",
+          "value": ""
+        },
+        {
+          "name": "sectionend",
+          "value": ""
+        },
+        {
+          "name": "indexstart",
+          "value": ""
+        },
+        {
+          "name": "indexend",
+          "value": ""
+        },
+        {
+          "name": "documentend",
+          "value": ""
+        },
+        {
+          "name": "scriptArgs",
+          "value": ""
+        },
+        {
+          "name": "preserveImageLinks",
+          "value": "false"
+        },
+        {
+          "name": "searchMissingLinks",
+          "value": ""
+        },
+        {
+          "name": "pdfCrop",
+          "value": "Bounding Box (Visible Layers)"
+        },
+        {
+          "name": "softStyle",
+          "value": "00111111"
+        },
+        {
+          "name": "firstPageSide",
+          "value": "Left to Right"
+        },
+        {
+          "name": "updateXrefsAtSectionEnd",
+          "value": "true"
+        },
+        {
+          "name": "updateXrefsAtJobEnd",
+          "value": "true"
+        },
+        {
+          "name": "tighterFloats",
+          "value": "false"
+        },
+        {
+          "name": "newFloatOrder",
+          "value": "false"
+        },
+        {
+          "name": "maximumRunTime",
+          "value": ""
+        }
+      ],
+      "plugin": "typefi-plugin-id",
+      "pluginversion": "typefi-plugin-id",
+      "minServerVersion": "8.0.0",
+      "disabled": "false"
+    },
+    {
+      "id": "5",
+      "type": "runscript",
+      "uiVersion": "2",
+      "description": "Run Script",
+      "displayname": "Run Script",
+      "inputs": [
+        {
+          "name": "input",
+          "value": "output-1.indd"
+        },
+        {
+          "name": "output",
+          "value": "output-1.indd"
+        },
+        {
+          "name": "script",
+          "value": "mathtools_powershell_start.js"
+        },
+        {
+          "name": "parameters",
+          "value": ""
+        }
+      ],
+      "plugin": "typefi-plugin-runscript",
+      "pluginversion": "7.0.38",
+      "minServerVersion": "8.0.0",
+      "disabled": "false"
+    }
+  ],
+  "purge1": {
+    "value": "0",
+    "unit": "day"
+  }
+}

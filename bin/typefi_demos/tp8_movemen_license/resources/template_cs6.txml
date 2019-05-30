@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?origin
+
+  File=Default CS6.indd
+  Date=Monday, January 01, 1601, 1:02 AM
+
+  From="Typefi Designer™"
+
+?>
+
+<tps:template xmlns:tps="http://www.typefi.com/TemplateXML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="4.1" xsi:schemaLocation="http://www.typefi.com/TemplateXML http://www.typefi.com/TPS/template/4_1/TemplateXML.xsd">
+    
+    
+    <!-- =================== -->
+    <!-- Document Definition -->
+    <!-- =================== -->
+    
+    <tps:definition tag="documentDef">
+        <tps:documentDef>
+            <tps:facingPages>true</tps:facingPages>
+        </tps:documentDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Character Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Emphasis</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:font>
+                <tps:name/>
+                <tps:style>Italic</tps:style>
+            </tps:font>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Paragraph Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Body Text</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Body Text</tps:name>
+                    <tps:font>
+                        <tps:name>Minion Pro</tps:name>
+                        <tps:style/>
+                    </tps:font>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>left justify</tps:alignment>
+            <tps:spaceAfter>3.175 mm</tps:spaceAfter>
+            <tps:nextStyle>Body Text</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Table Style Definitions -->
+    <!-- ======================= -->
+    
+    <tps:definition tag="tableStyleDef">
+        <tps:tableStyleDef>
+            <tps:name>Table Style 1</tps:name>
+        </tps:tableStyleDef>
+    </tps:definition>
+    
+    
+    <!-- ================================== -->
+    <!-- Cross-reference Format Definitions -->
+    <!-- ================================== -->
+    
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Master Page Definitions -->
+    <!-- ======================= -->
+    
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>A-ChapterTitleMaster</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>B-RepeatingMaster</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>D-DocumentTitle</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>X-Elements</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="215.9 mm" height="279.4 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    
+    
+    <!-- ============================================= -->
+    <!-- Template Item Definitions (Main Story Frames) -->
+    <!-- ============================================= -->
+    
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>A-ChapterTitleMaster:0</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>A-ChapterTitleMaster</tps:spreadName>
+                    <tps:spreadSide>0</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="69.8412 mm"/>
+            <tps:size width="190.5 mm" height="186.275 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>Body Text</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>A-ChapterTitleMaster:1</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>A-ChapterTitleMaster</tps:spreadName>
+                    <tps:spreadSide>1</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="69.8412 mm"/>
+            <tps:size width="190.5 mm" height="186.275 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>Body Text</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>B-RepeatingMaster:0</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>B-RepeatingMaster</tps:spreadName>
+                    <tps:spreadSide>0</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="27.5461 mm"/>
+            <tps:size width="190.5 mm" height="228.571 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>Body Text</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>B-RepeatingMaster:1</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>B-RepeatingMaster</tps:spreadName>
+                    <tps:spreadSide>1</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="27.5461 mm"/>
+            <tps:size width="190.5 mm" height="228.571 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>Body Text</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    
+    
+    
+    
+    <!-- =================== -->
+    <!-- Element Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="inlineElementDef">
+        <tps:inlineElementDef>
+            <tps:name>Inline</tps:name>
+            <tps:parStyle>Body Text</tps:parStyle>
+        </tps:inlineElementDef>
+    </tps:definition>
+    <tps:definition tag="floatingElementDef">
+        <tps:floatingElementDef>
+            <tps:name>Float</tps:name>
+            <tps:parStyle>Body Text</tps:parStyle>
+        </tps:floatingElementDef>
+    </tps:definition>
+    
+    
+    <!-- ============================ -->
+    <!-- Element Variants Definitions -->
+    <!-- ============================ -->
+    
+    <tps:definition tag="elementVariantDef">
+        <tps:elementVariantDef id="1" type="inline">
+            <tps:elementFamily>Inline</tps:elementFamily>
+            <tps:pos x="12.7 mm" y="12.7 mm"/>
+            <tps:size width="110.067 mm" height="76.0095 mm"/>
+            <tps:frames>
+                <tps:frame type="imageFrame"/>
+            </tps:frames>
+        </tps:elementVariantDef>
+    </tps:definition>
+    <tps:definition tag="elementVariantDef">
+        <tps:elementVariantDef id="1">
+            <tps:elementFamily>Float</tps:elementFamily>
+            <tps:pos x="12.7 mm" y="124.531 mm"/>
+            <tps:size width="110.067 mm" height="76.0095 mm"/>
+            <tps:rules>
+                <tps:rule tag="placementRule" type="pageSide" priority="1">
+                    <tps:placementRule pageSide="left"/>
+                </tps:rule>
+                <tps:rule tag="placementRule" type="pageSide" priority="1">
+                    <tps:placementRule pageSide="right"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="3">
+                    <tps:floatFrameAlignmentRule xRef="outside" yRef="top" xBase="textFrame" yBase="textFrame" topLimit="textFrame" floatXRef="outside" floatYRef="top" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="0">
+                    <tps:floatFrameAlignmentRule xRef="center" yRef="middle" xBase="textFrame" yBase="textFrame" topLimit="textFrame" floatXRef="center" floatYRef="middle" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="0">
+                    <tps:floatFrameAlignmentRule xRef="left" yRef="bottom" xBase="variant" yBase="textFrame" topLimit="textFrame" floatXRef="left" floatYRef="bottom" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatLineAlignmentRule" type="alignment" priority="0">
+                    <tps:floatLineAlignmentRule xRef="left" xBase="variant" yBase="baseline" topLimit="textFrame" floatXRef="left" floatYRef="top" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+            </tps:rules>
+            <tps:frames>
+                <tps:frame type="imageFrame"/>
+            </tps:frames>
+            <tps:floatSpacing top="0 mm" left="0 mm" right="0 mm" bottom="0 mm"/>
+        </tps:elementVariantDef>
+    </tps:definition>
+    
+    
+    <!-- =================== -->
+    <!-- Section Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="sectionDef">
+        <tps:sectionDef toc="false" repeating="false">
+            <tps:name>TitlePage</tps:name>
+            <tps:masterSpreads>
+                <tps:masterSpread>
+                    <tps:name>D-DocumentTitle</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+            </tps:masterSpreads>
+            <tps:fields/>
+        </tps:sectionDef>
+    </tps:definition>
+    <tps:definition tag="sectionDef">
+        <tps:sectionDef toc="false" repeating="true">
+            <tps:name>Chapter</tps:name>
+            <tps:masterSpreads>
+                <tps:masterSpread>
+                    <tps:name>A-ChapterTitleMaster</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+                <tps:masterSpread>
+                    <tps:name>B-RepeatingMaster</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+            </tps:masterSpreads>
+            <tps:fields>
+                <tps:field>ChapterNumber</tps:field>
+                <tps:field>ChapterTitle</tps:field>
+            </tps:fields>
+        </tps:sectionDef>
+    </tps:definition>
+    
+    
+    <!-- ================= -->
+    <!-- Field Definitions -->
+    <!-- ================= -->
+    
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>ChapterTitle</tps:name>
+            <tps:type>text</tps:type>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>DocumentTitle</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>DocumentAuthor</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>ChapterNumber</tps:name>
+            <tps:type>counter</tps:type>
+        </tps:fieldDef>
+    </tps:definition>
+</tps:template>

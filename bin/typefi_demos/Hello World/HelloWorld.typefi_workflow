@@ -1,0 +1,295 @@
+{
+  "name": "HelloWorld",
+  "actions": [
+    {
+      "id": "1",
+      "type": "docx-to-cxml",
+      "uiVersion": "3",
+      "description": "Import DOCX",
+      "displayname": "Import DOCX",
+      "inputs": [
+        {
+          "name": "input",
+          "value": "/Hello World/Content files/Test Document.docx"
+        },
+        {
+          "name": "output",
+          "value": "output-1.cxml"
+        },
+        {
+          "name": "extractImages",
+          "value": "true"
+        },
+        {
+          "name": "imageOption",
+          "value": "Upload images to job folder"
+        },
+        {
+          "name": "customFolder",
+          "value": ""
+        },
+        {
+          "name": "includeIndexTags",
+          "value": "false"
+        },
+        {
+          "name": "boldStyle",
+          "value": "Index Bold"
+        },
+        {
+          "name": "italicStyle",
+          "value": "Index Italic"
+        },
+        {
+          "name": "boldItalicStyle",
+          "value": "Index Bold Italic"
+        },
+        {
+          "name": "validateOutput",
+          "value": "false"
+        },
+        {
+          "name": "whitespaceMode",
+          "value": "strict"
+        },
+        {
+          "name": "formatAndIndent",
+          "value": "false"
+        },
+        {
+          "name": "convertPageBreaks",
+          "value": "false"
+        }
+      ],
+      "plugin": "typefi-plugin-docx",
+      "pluginversion": "5.0.59",
+      "minServerVersion": "8.0.0",
+      "disabled": "false"
+    },
+    {
+      "id": "2",
+      "type": "cxml-to-indd",
+      "uiVersion": "7",
+      "description": "Create InDesign document",
+      "displayname": "Create InDesign document",
+      "inputs": [
+        {
+          "name": "input",
+          "value": "output-1.cxml"
+        },
+        {
+          "name": "output",
+          "value": "output-1.indd"
+        },
+        {
+          "name": "template",
+          "value": "/Hello World/Templates/Default CC11.indd"
+        },
+        {
+          "name": "firstPageNumber",
+          "value": "1"
+        },
+        {
+          "name": "engine",
+          "value": "Any"
+        },
+        {
+          "name": "documentstart",
+          "value": "Typefi/fixMFSError.jsxbin"
+        },
+        {
+          "name": "sectionstart",
+          "value": ""
+        },
+        {
+          "name": "spreadstart",
+          "value": ""
+        },
+        {
+          "name": "pagestart",
+          "value": ""
+        },
+        {
+          "name": "spillend",
+          "value": ""
+        },
+        {
+          "name": "pageend",
+          "value": ""
+        },
+        {
+          "name": "spreadend",
+          "value": ""
+        },
+        {
+          "name": "sectionend",
+          "value": ""
+        },
+        {
+          "name": "indexstart",
+          "value": ""
+        },
+        {
+          "name": "indexend",
+          "value": ""
+        },
+        {
+          "name": "documentend",
+          "value": ""
+        },
+        {
+          "name": "scriptArgs",
+          "value": ""
+        },
+        {
+          "name": "preserveImageLinks",
+          "value": "false"
+        },
+        {
+          "name": "searchMissingLinks",
+          "value": ""
+        },
+        {
+          "name": "pdfCrop",
+          "value": "Bounding Box (Visible Layers)"
+        },
+        {
+          "name": "softStyle",
+          "value": "00111111"
+        },
+        {
+          "name": "firstPageSide",
+          "value": "Left to Right"
+        },
+        {
+          "name": "updateXrefsAtSectionEnd",
+          "value": "false"
+        },
+        {
+          "name": "updateXrefsAtJobEnd",
+          "value": "false"
+        },
+        {
+          "name": "tighterFloats",
+          "value": "false"
+        },
+        {
+          "name": "newFloatOrder",
+          "value": "false"
+        },
+        {
+          "name": "maximumRunTime",
+          "value": ""
+        }
+      ],
+      "plugin": "typefi-plugin-id",
+      "pluginversion": "typefi-plugin-id",
+      "minServerVersion": "8.0.0",
+      "disabled": "false"
+    },
+    {
+      "id": "3",
+      "type": "indd-to-pdf",
+      "uiVersion": "2",
+      "description": "Export to PDF",
+      "displayname": "Export to PDF",
+      "inputs": [
+        {
+          "name": "input",
+          "value": "output-1.indd"
+        },
+        {
+          "name": "output",
+          "value": "output-1.pdf"
+        },
+        {
+          "name": "engine",
+          "value": "Any"
+        },
+        {
+          "name": "preset",
+          "value": "[Accessible_HD-ar]",
+          "values": [
+            "[Accessible_HD-ar]",
+            "[Accessible_HD]",
+            "[Accessible_PDF]",
+            "[Adobe PDF for T-S crop marks]",
+            "[Adobe PDF for T-S Hyperlinks]",
+            "[Adobe PDF for T-S room for hard crops]",
+            "[Adobe PDF for T-S]",
+            "[APA Draft PDF]",
+            "[ASI_2016_RGB]",
+            "[Bloomsbury PDFx1a, 6mm trim]",
+            "[Bloomsbury WEB v1]",
+            "[Bloomsbury WEB v2]",
+            "[BookmarksOn]",
+            "[BSI Press-ready PDF 2017]",
+            "[CUP_NEW]",
+            "[CUP_Press_v4_d8]",
+            "[CUP_Press_v4_d8_bleed]",
+            "[CUP_Web_v4_d8]",
+            "[CUP_without-bleed-crop]",
+            "[DJS_RUP_300-high]",
+            "[DJS_RUP_deliv_7v2.0]",
+            "[DJS_standard_deliv_7v1.0]",
+            "[Edwards Bros CS]",
+            "[EE PDF Export (CMYK + PMS)]",
+            "[EE PDF Export (Mono Text)]",
+            "[EE_Web_v2]",
+            "[FederationPress_PRESS]",
+            "[FederationPress_PROOFS]",
+            "[HD_EXPORT]",
+            "[High Quality Print]",
+            "[HighQualityPrint_withLinks]",
+            "[IEEE-IEL (1)]",
+            "[IEEE-IEL]",
+            "[IEL]",
+            "[InDesignCS4_200902]",
+            "[Interactive]",
+            "[ISO Accessible PDF]",
+            "[ISO Standard PDF]",
+            "[Kaplan Marks and Bleeds]",
+            "[KJ_WebReady]",
+            "[LightningSource PrintOnDemand]",
+            "[my High Quality Print(1)]",
+            "[My high res 300 no compression]",
+            "[My high res 600 no compression]",
+            "[PDF for Web]",
+            "[PDF/X-1a:2001]",
+            "[PDF/X-3:2002]",
+            "[PDF/X-4:2008]",
+            "[Press Quality]",
+            "[Print-ready PDF]",
+            "[RUP.JOBOPTIONS]",
+            "[SA_Accessible_PDF]",
+            "[SA_PDF_Preset_2017]",
+            "[SFS Preview PDF]",
+            "[SFS Standard PDF]",
+            "[Sheridan Books CS5]",
+            "[Sheridan Press CS2]",
+            "[Sheridan Press_newCS6]",
+            "[Sheridan]",
+            "[Sheridan_Press_CS3]",
+            "[SJS_deliv_include_hyperlinks]",
+            "[Smallest File Size]",
+            "[TPS with Bookmarks]",
+            "[Web-ready PDF]"
+          ]
+        },
+        {
+          "name": "displayTitle",
+          "value": "File name"
+        },
+        {
+          "name": "documentLanguage",
+          "value": ""
+        }
+      ],
+      "plugin": "typefi-plugin-id",
+      "pluginversion": "12.0.215",
+      "minServerVersion": "8.0.0",
+      "disabled": "false"
+    }
+  ],
+  "purge": "Do not purge"
+}

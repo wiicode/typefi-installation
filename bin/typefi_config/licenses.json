@@ -1,0 +1,54 @@
+{
+    "customer": "Typefi - Karl Jankowski",
+    "installationType": "WORKGROUP_SUBSCRIPTION",
+    "installationCode": "TYP-6336-2663-1425-0788",
+    "macAddress": "0A-F4-30-30-13-06",
+    "licenseCount": {
+        "key": "cM£\u0006;uH Û\u003e \u000e\u001fá(Wæ\u003c;GcÝwj\u003c\u001ara ¡û"
+    },
+    "installationName": "TUC2019",
+    "licenseList": [
+        {
+            "issued": "2019-04-23",
+            "expiry": "2020-04-30",
+            "signCode": "FF0F",
+            "signature": "302C021451CE5152F640D29EC5060E48B992E0A4BC26F5380214103ABA9061B63D1DCE82A5F0D9626DFD731A0510",
+            "licenseVersion": "3",
+            "actions": [],
+            "plugins": [
+                "typefi-plugin-ant",
+                "typefi-plugin-bsi",
+                "typefi-plugin-daisy",
+                "typefi-plugin-deltaxml",
+                "typefi-plugin-dita",
+                "typefi-plugin-docbook",
+                "typefi-plugin-docx",
+                "typefi-plugin-ds",
+                "typefi-plugin-edgar",
+                "typefi-plugin-epub",
+                "typefi-plugin-extensis",
+                "typefi-plugin-html",
+                "typefi-plugin-id",
+                "typefi-plugin-isosts",
+                "typefi-plugin-jats",
+                "typefi-plugin-md",
+                "typefi-plugin-nlm",
+                "typefi-plugin-pdfbox",
+                "typefi-plugin-pdftk",
+                "typefi-plugin-runscript",
+                "typefi-plugin-sa",
+                "typefi-plugin-schematron",
+                "typefi-plugin-sis",
+                "typefi-plugin-sn",
+                "typefi-plugin-spl",
+                "typefi-plugin-util",
+                "typefi-plugin-validate-url",
+                "typefi-plugin-validateurl",
+                "typefi-plugin-validation",
+                "typefi-plugin-xls",
+                "typefi-plugin-xmlpackageingester",
+                "typefi-plugin-xsl"
+            ]
+        }
+    ]
+}

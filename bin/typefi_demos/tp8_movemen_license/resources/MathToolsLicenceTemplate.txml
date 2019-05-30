@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?origin
+
+  File=MathToolsLicenseTemplate.indd
+  Date=01 January 1601, 01:02
+
+  From="Typefi Designer™"
+
+?>
+
+<tps:template xmlns:tps="http://www.typefi.com/TemplateXML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="4.2" xsi:schemaLocation="http://www.typefi.com/TemplateXML http://www.typefi.com/TPS/template/4_2/TemplateXML.xsd">
+    
+    
+    <!-- =================== -->
+    <!-- Document Definition -->
+    <!-- =================== -->
+    
+    <tps:definition tag="documentDef">
+        <tps:documentDef>
+            <tps:facingPages>true</tps:facingPages>
+        </tps:documentDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Character Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>fn cue</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>index ff</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:leading>0 pt</tps:leading>
+            <tps:color>
+                C=0 M=100 Y=0 K=0
+            </tps:color>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>index hide</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:fontSize>0.1 pt</tps:fontSize>
+            <tps:leading>0.1 pt</tps:leading>
+            <tps:color>
+                None
+            </tps:color>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>index italic</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:font>
+                <tps:name/>
+                <tps:style>Italic</tps:style>
+            </tps:font>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Paragraph Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>footnote</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>footnote</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:fontSize>8 pt</tps:fontSize>
+                    <tps:leading>9 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:nextStyle>footnote</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>chapter</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>chapter</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:fontSize>24 pt</tps:fontSize>
+                    <tps:leading>30 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>left</tps:alignment>
+            <tps:spaceAfter>8.46667 mm</tps:spaceAfter>
+            <tps:nextStyle>chapter</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>default</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>default</tps:name>
+                    <tps:font/>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>left justify</tps:alignment>
+            <tps:nextStyle>default</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>prelim end</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>prelim end</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:fontSize>22 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:nextStyle>prelim end</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>index contd</tps:name>
+            <tps:basedOn>index-1</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>index contd</tps:name>
+                    <tps:basedOn>index-1</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:nextStyle>index contd</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>index section</tps:name>
+            <tps:basedOn>index-1</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>index section</tps:name>
+                    <tps:basedOn>index-1</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                    <tps:color>
+                        None
+                    </tps:color>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceBefore>3.52778 mm</tps:spaceBefore>
+            <tps:nextStyle>index section</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>index-1</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>index-1</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:fontSize>9 pt</tps:fontSize>
+                    <tps:leading>10 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>left</tps:alignment>
+            <tps:indentLeft>6.35 mm</tps:indentLeft>
+            <tps:indentFirstLine>-6.35 mm</tps:indentFirstLine>
+            <tps:nextStyle>index-1</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>index-2</tps:name>
+            <tps:basedOn>index-1</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>index-2</tps:name>
+                    <tps:basedOn>index-1</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:indentFirstLine>-3.175 mm</tps:indentFirstLine>
+            <tps:nextStyle>index-2</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>running header</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>running header</tps:name>
+                    <tps:font/>
+                    <tps:fontSize>9 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:nextStyle>running header</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>secA</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>secA</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:fontSize>12 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceBefore>6.35 mm</tps:spaceBefore>
+            <tps:spaceAfter>2.11667 mm</tps:spaceAfter>
+            <tps:nextStyle>secA</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>secB</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>secB</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:font>
+                        <tps:name/>
+                        <tps:style>Italic</tps:style>
+                    </tps:font>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceBefore>4.23333 mm</tps:spaceBefore>
+            <tps:nextStyle>secB</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>toc chapter</tps:name>
+            <tps:basedOn>toc secA</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>toc chapter</tps:name>
+                    <tps:basedOn>toc secA</tps:basedOn>
+                    <tps:font>
+                        <tps:name/>
+                        <tps:style>Semibold</tps:style>
+                    </tps:font>
+                    <tps:fontSize>12 pt</tps:fontSize>
+                    <tps:leading>14 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceBefore>4.23333 mm</tps:spaceBefore>
+            <tps:spaceAfter>2.11667 mm</tps:spaceAfter>
+            <tps:nextStyle>toc chapter</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>toc secA</tps:name>
+            <tps:basedOn>default</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>toc secA</tps:name>
+                    <tps:basedOn>default</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>left</tps:alignment>
+            <tps:nextStyle>toc secA</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>toc secB</tps:name>
+            <tps:basedOn>toc secA</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>toc secB</tps:name>
+                    <tps:basedOn>toc secA</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:indentLeft>4.23333 mm</tps:indentLeft>
+            <tps:nextStyle>toc secB</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Table Style Definitions -->
+    <!-- ======================= -->
+    
+    
+    
+    <!-- ================================== -->
+    <!-- Cross-reference Format Definitions -->
+    <!-- ================================== -->
+    
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Tps.Toc.Entry</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Master Page Definitions -->
+    <!-- ======================= -->
+    
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>M1-main</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="148 mm" height="210 mm"/>
+                <tps:margins top="17.6389 mm" left="28.2222 mm" right="12.7 mm" bottom="23.0276 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="148 mm" height="210 mm"/>
+                <tps:margins top="17.6389 mm" left="12.7 mm" right="28.2222 mm" bottom="23.0276 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    
+    
+    <!-- ============================================= -->
+    <!-- Template Item Definitions (Main Story Frames) -->
+    <!-- ============================================= -->
+    
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>M1-main:0</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>M1-main</tps:spreadName>
+                    <tps:spreadSide>0</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="28.2222 mm" y="17.6389 mm"/>
+            <tps:size width="107.078 mm" height="169.333 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>default</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>M1-main:1</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>M1-main</tps:spreadName>
+                    <tps:spreadSide>1</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="17.6389 mm"/>
+            <tps:size width="107.078 mm" height="169.333 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle>default</tps:parStyle>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    
+    
+    <!-- =================== -->
+    <!-- Element Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="placedElementDef">
+        <tps:placedElementDef>
+            <tps:name>text box</tps:name>
+        </tps:placedElementDef>
+    </tps:definition>
+    
+    
+    <!-- ============================ -->
+    <!-- Element Variants Definitions -->
+    <!-- ============================ -->
+    
+    
+    
+    <!-- =================== -->
+    <!-- Section Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="sectionDef">
+        <tps:sectionDef toc="false" repeating="true">
+            <tps:name>main</tps:name>
+            <tps:masterSpreads>
+                <tps:masterSpread>
+                    <tps:name>M1-main</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+            </tps:masterSpreads>
+            <tps:fields/>
+        </tps:sectionDef>
+    </tps:definition>
+    
+    
+    <!-- ================= -->
+    <!-- Field Definitions -->
+    <!-- ================= -->
+    
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>thumbtab</tps:name>
+            <tps:type>text</tps:type>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Colour</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Region</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Arabic page number start</tps:name>
+            <tps:type>text</tps:type>
+        </tps:fieldDef>
+    </tps:definition>
+</tps:template>

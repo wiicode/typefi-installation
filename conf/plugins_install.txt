@@ -1,0 +1,5 @@
+typefi-plugin-docx##16.0.546.war
+typefi-plugin-id##28.0.705.war
+typefi-plugin-runscript##7.0.38.war
+typefi-plugin-util##14.0.212.war
+typefi-plugin-xsl##12.0.122.war
