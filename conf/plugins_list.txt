@@ -1,7 +1,9 @@
 typefi-plugin-ant##6.0.63.war
+typefi-plugin-bits##1.0.7.war
 typefi-plugin-bsi##6.0.28.war
 typefi-plugin-daisy##2.0.22.war
 typefi-plugin-deltaxml##6.0.55.war
+typefi-plugin-deltaxml##7.0.61.war
 typefi-plugin-dita##4.0.18.war
 typefi-plugin-docbook##4.0.16.war
 typefi-plugin-docx##16.0.546.war
@@ -11,10 +13,12 @@ typefi-plugin-epub##9.0.123.war
 typefi-plugin-extensis##2.0.42.war
 typefi-plugin-html##3.0.30.war
 typefi-plugin-id##28.0.705.war
+typefi-plugin-id##29.0.709.war
 typefi-plugin-isosts##5.0.42.war
 typefi-plugin-jats##7.0.70.war
 typefi-plugin-md##10.0.72.war
 typefi-plugin-nlm##4.0.16.war
+typefi-plugin-pdfbox##1.0.43.war
 typefi-plugin-pdfbox##1.0.6.war
 typefi-plugin-pdftk##5.0.53.war
 typefi-plugin-runscript##7.0.38.war
