@@ -122,35 +122,6 @@
       "minServerVersion": "8.0.0",
       "disabled": "false"
     },
-    {
-      "id": "5",
-      "type": "runscript",
-      "uiVersion": "2",
-      "description": "Run Script",
-      "displayname": "Run Script",
-      "inputs": [
-        {
-          "name": "input",
-          "value": "output-1.indd"
-        },
-        {
-          "name": "output",
-          "value": "output-1.indd"
-        },
-        {
-          "name": "script",
-          "value": "mathtools_powershell_start.js"
-        },
-        {
-          "name": "parameters",
-          "value": ""
-        }
-      ],
-      "plugin": "typefi-plugin-runscript",
-      "pluginversion": "7.0.38",
-      "minServerVersion": "8.0.0",
-      "disabled": "false"
-    }
   ],
   "purge1": {
     "value": "0",
