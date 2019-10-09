@@ -1,6 +1,5 @@
 <#
-Created to deploy hotfix https://helpx.adobe.com/indesign/kb/search-issue-in-long-documents.html
-http://download.adobe.com/pub/adobe/indesign/win/CopyPlugin.zip
+Rolls back InDesignServerService.exe to version 14.0.0.130.
 #>
 $PSVersionTable.PSVersion
 $ErrorActionPreference = "SilentlyContinue"
