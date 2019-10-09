@@ -52,7 +52,7 @@ function updateMathTools($YYYY)
   #call function
     Write-Host "DEBUG: Stopping InDesign CC $YYYY"
     Stop-Service -Name "InDesignServerService x64"
-
+    Get-Process "InDesign*" | Stop-Process -Force
   #call function
     Write-Host "DEBUG: Backing up MathTools License $YYYY"
     backupMathToolsLicense
