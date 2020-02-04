@@ -46,12 +46,12 @@ Check for
 INDESIGN SERVER
 -----
 #>
-
+$ids2020 = "Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32"
 $ids2019 = "Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32"
 $ids2018 = "Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32"
 $ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32"
 $ids2015 = "Registry::HKEY_CLASSES_ROOT\CLSID\{AE4167A3-35E4-4B93-A620-AD088ABEB207}\LocalServer32"
-$idsVersions = @("$ids2019","$ids2018","$ids2017","$ids2015") #example, "$ids2019","$ids2018","$ids2017"
+$idsVersions = @("$ids2020","$ids2019","$ids2018","$ids2017","$ids2015") #example, "$ids2019","$ids2018","$ids2017"
 
 
 foreach ($idsVer in $idsVersions) {

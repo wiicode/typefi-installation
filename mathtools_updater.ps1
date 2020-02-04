@@ -4,12 +4,14 @@ $global:logfile = "$PSScriptRoot\logs\mathtools_upgrade_output.txt"
 Start-Transcript -path $logfile -Append
 Write-Host "Alpha"
 #check if InDesign CC version exists, and figure out the installation directory
+#2020, Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32
 #2019, Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32
 #2018, Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32
 #2017, Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32
 #
 #Figure out if InDesign is installed and do stuff!
 ## Edit this as needed
+$ids2020 = "Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32"
 $ids2019 = "Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32"
 $ids2018 = "Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32"
 $ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32"
@@ -17,7 +19,7 @@ $ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121C
 ## Edit these as needed ###
 $global:mathtools_version = "3_0_1_064" #Example: "3_0_1_055"
 $global:mathtools_url = "http://movemen.com/files/downloads/mtv3/064" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
-$idsVersions = @("$ids2019","$ids2018","$ids2017") #example, "$ids2019","$ids2018","$ids2017"
+$idsVersions = @("$ids2020","$ids2019","$ids2018","$ids2017") #example, "$ids2019","$ids2018","$ids2017"
 #
 
 
