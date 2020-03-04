@@ -232,6 +232,13 @@ If (Test-Path $typefi)
         Write-Host " "
         Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_IN_USE
         Write-Host " "
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_URL
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_SEARCH_BASE
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_AUTHENTICATION_NAME
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_ADDITIONAL_SEARCH_FILTER
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_USERNAME_ATTRIBUTE
+        Write-Host "-t-> LDAP is in use:" $ldap_values.LDAP_DISPLAY_NAME_ATTRIBUTE
+        Write-Host " "
 
         #Tomcat harvest.
         $typefi_reg = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Typefi\Server8"
