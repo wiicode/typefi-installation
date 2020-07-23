@@ -95,6 +95,37 @@ function updateMathTools($YYYY)
 
 }
 
+function updateMathTools2020($YYYY)
+{
+  #call function
+    Write-Host "DEBUG: Stopping InDesign CC $YYYY"
+    Stop-Service -Name "InDesignServerService x64"
+    Get-Process "InDesign*" | Stop-Process -Force
+  #call function
+    Write-Host "DEBUG: Backing up MathTools License $YYYY"
+    backupMathToolsLicense
+
+    #main body
+    #remove old MathTools
+    Remove-Item $ids_path_dir\Plug-Ins\movemen -Force -Recurse
+
+    #prepare new MathTools
+    #debug
+    #New-Item -ItemType directory -Path $output_dir\debug -Force
+    #Expand-Archive -Path $output_dir\MathToolsEESrv-3_0_1_055-CC-$YYYY-WIN64.zip -DestinationPath $output_dir\debug -Force
+    #Copy-Item $output_dir\lic\*.lic -Destination $output_dir\debug\movemen\lic -Force
+
+    #production
+    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
+    Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
+
+  #call function
+    Write-Host "DEBUG: Starting InDesign CC $YYYY"
+    Start-Service -Name "InDesignServerService x64"
+
+}
+
+
 ######## FUNCTION ####################
 function detectMathTools($YYYY)
 {
@@ -104,7 +135,15 @@ function detectMathTools($YYYY)
 If (Test-Path $ids_path_dir\Plug-Ins\movemen)
     {
         Write-Host "MathTools was found"
-        updateMathTools "$YYYY"
+
+            If ($YYYY -ne "2020"){
+                  updateMathTools "$idsYYYY"
+              }
+            else {
+
+                updateMathTools2020 "$idsYYYY"
+
+            }
 
     }
 

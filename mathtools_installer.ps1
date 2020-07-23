@@ -93,6 +93,47 @@ function installMathTools($YYYY)
 
 }
 
+function installMathTools2020($YYYY)
+{
+  #call function
+    Write-Host "DEBUG: Stopping InDesign CC $YYYY"
+    Stop-Service -Name "InDesignServerService x64"
+    Get-Process "InDesign*" | Stop-Process -Force
+  #call function
+
+    #main body
+
+    #prepare new MathTools
+    #debug
+    #New-Item -ItemType directory -Path $output_dir\debug -Force
+    #Expand-Archive -Path $output_dir\MathToolsEESrv-3_0_1_055-CC-$YYYY-WIN64.zip -DestinationPath $output_dir\debug -Force
+    #Copy-Item $output_dir\lic\*.lic -Destination $output_dir\debug\movemen\lic -Force
+
+    #production
+    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
+    #if a license exists (maybe this is a reinstall?) then copy it in.
+    If (Test-Path $output_dir\lic\mt.MathToolsV2.lic)
+        {
+
+            Write-Host "Previous license found. Restoring."
+            Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
+        }
+
+    Else
+        {
+
+            Write-Host "Did not find existing MathTools Licenses."
+
+         }
+
+
+  #call function
+    Write-Host "DEBUG: Starting InDesign CC $YYYY"
+    Start-Service -Name "InDesignServerService x64"
+
+
+}
+
 ######## FUNCTION ####################
 function detectMathTools($YYYY)
 {
@@ -109,7 +150,15 @@ Else
     {
 
         Write-Host "Did not find MathTools on this attempt. Proceeding with installation."
-        installMathTools "$YYYY"
+
+        If ($YYYY -ne "2020"){
+                  installMathTools "$idsYYYY"
+              }
+        else {
+
+                installMathTools2020 "$idsYYYY"
+
+            }
 
      }
 
@@ -141,7 +190,7 @@ Else
             $global:idsYYYY = $ids_path_dir.substring($ids_path_dir.length - 4)
             Write-Host "DEBUG:" $idsYYYY
 
-            If ($idsYYYY <> "2020"){
+            If ($idsYYYY -ne "2020"){
                     downloadMathTools "$idsYYYY"
                 }
 
