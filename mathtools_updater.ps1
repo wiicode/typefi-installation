@@ -40,6 +40,22 @@ function downloadMathTools($YYYY)
 }
 
 ######## FUNCTION ####################
+function downloadMathTools2020($YYYY)
+{
+  Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
+  $mathtools = "MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
+  $url = "$mathtools_url/$mathtools"
+  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY\"
+  $output = "$output_dir\$mathtools"
+  $start_time = Get-Date
+
+  New-Item -ItemType directory -Path $output_dir -Force
+  Invoke-WebRequest -Uri $url -OutFile $output
+  Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+}
+
+######## FUNCTION ####################
 function backupMathToolsLicense
 {
   Write-Host "DEBUG: Copying license file from:" $ids_path_dir
@@ -127,7 +143,14 @@ Else
             $global:idsYYYY = $ids_path_dir.substring($ids_path_dir.length - 4)
             Write-Host "DEBUG: IDS YEAR" $idsYYYY
 
-            downloadMathTools "$idsYYYY"
+            If ($idsYYYY -ne "2020"){
+                  downloadMathTools "$idsYYYY"
+              }
+            else {
+
+                downloadMathTools2020 "$idsYYYY"
+
+            }
 
             detectMathTools "$idsYYYY"
 
