@@ -17,8 +17,8 @@ $ids2018 = "Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B7
 $ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32"
 #
 ## Edit these as needed ###
-$global:mathtools_version = "3_0_1_074" #Example: "3_0_1_055"
-$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/074" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
+$global:mathtools_version = "3_0_1_079" #Example: "3_0_1_055"
+$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/079" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
 $idsVersions = @("$ids2020","$ids2019","$ids2018","$ids2017") #example, "$ids2019","$ids2018","$ids2017"
 #
 
