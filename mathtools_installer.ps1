@@ -28,7 +28,7 @@ function downloadMathTools($YYYY)
   Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
-  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY\"
+  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
   $output = "$output_dir\$mathtools"
   $start_time = Get-Date
 
@@ -36,19 +36,48 @@ function downloadMathTools($YYYY)
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
 
+
+    $verifyDownload = "$output_dir\MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
+    Write-Output "DEBUG: Check if $verifyDownload is here."
+    if (Test-Path $verifyDownload -PathType leaf)
+        {
+             Write-Warning "DEBUG: $verifyDownload exists."
+        }
+        else
+        {
+            Write-Warning "FAILURE: $verifyDownload MISSING."
+            [Environment]::Exit(1)
+
+        }
+
+
 }
+
 function downloadMathTools2020($YYYY)
 {
   Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
-  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY\"
+  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
   $output = "$output_dir\$mathtools"
   $start_time = Get-Date
 
   New-Item -ItemType directory -Path $output_dir -Force
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+    $verifyDownload = "$output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
+    Write-Output "DEBUG: Check if $verifyDownload is here."
+    if (Test-Path $verifyDownload -PathType leaf)
+        {
+             Write-Warning "DEBUG: $verifyDownload exists."
+        }
+        else
+        {
+            Write-Warning "FAILURE: $verifyDownload MISSING."
+            [Environment]::Exit(1)
+
+        }
 
 }
 
@@ -144,20 +173,21 @@ function detectMathTools($YYYY)
 If (Test-Path $ids_path_dir\Plug-Ins\movemen)
     {
 
-        Write-Host "MathTools was found.  Skipping installation."
+        Write-Host "DEBUG:  MathTools was found.  Skipping installation."
     }
 
 Else
     {
 
-        Write-Host "Did not find MathTools on this attempt. Proceeding with installation."
+        Write-Host "DEBUG: Did not find MathTools on this attempt. Proceeding with installation."
 
         If ($YYYY -ne "2020"){
+                  Write-Host "DEBUG: Choosing installMathTools $idsYYYY ."
                   installMathTools "$idsYYYY"
               }
         else {
-
-                installMathTools2020 "$idsYYYY"
+                  Write-Host "DEBUG: Choosing installMathTools2020 $idsYYYY ."
+                  installMathTools2020 "$idsYYYY"
 
             }
 
@@ -192,10 +222,12 @@ Else
             Write-Host "DEBUG:" $idsYYYY
 
             If ($idsYYYY -ne "2020"){
+                    Write-Host "DEBUG: Choosing downloadMathTools $idsYYYY ."
                     downloadMathTools "$idsYYYY"
                 }
 
             else {
+                    Write-Host "DEBUG: Choosing downloadMathTools2020 $idsYYYY ."
                     downloadMathTools2020 "$idsYYYY"
             }
 

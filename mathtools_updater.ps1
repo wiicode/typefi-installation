@@ -29,13 +29,28 @@ function downloadMathTools($YYYY)
   Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
-  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY\"
+  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
   $output = "$output_dir\$mathtools"
   $start_time = Get-Date
 
   New-Item -ItemType directory -Path $output_dir -Force
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+
+    $verifyDownload = "$output_dir\MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
+    Write-Output "DEBUG: Check if $verifyDownload is here."
+    if (Test-Path $verifyDownload -PathType leaf)
+        {
+             Write-Warning "DEBUG: $verifyDownload exists."
+        }
+        else
+        {
+            Write-Warning "FAILURE: $verifyDownload MISSING."
+            [Environment]::Exit(1)
+
+        }
+
 
 }
 
@@ -45,13 +60,26 @@ function downloadMathTools2020($YYYY)
   Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
-  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY\"
+  $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
   $output = "$output_dir\$mathtools"
   $start_time = Get-Date
 
   New-Item -ItemType directory -Path $output_dir -Force
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+    $verifyDownload = "$output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
+    Write-Output "DEBUG: Check if $verifyDownload is here."
+    if (Test-Path $verifyDownload -PathType leaf)
+        {
+             Write-Warning "DEBUG: $verifyDownload exists."
+        }
+        else
+        {
+            Write-Warning "FAILURE: $verifyDownload MISSING."
+            [Environment]::Exit(1)
+
+        }
 
 }
 
@@ -68,6 +96,7 @@ function backupMathToolsLicense
 function updateMathTools($YYYY)
 {
   #call function
+    Write-Host "DEBUG: This is updateMathTools for IDS $YYYY"
     Write-Host "DEBUG: Stopping InDesign CC $YYYY"
     Stop-Service -Name "InDesignServerService x64"
     Get-Process "InDesign*" | Stop-Process -Force
@@ -86,6 +115,7 @@ function updateMathTools($YYYY)
     #Copy-Item $output_dir\lic\*.lic -Destination $output_dir\debug\movemen\lic -Force
 
     #production
+    Write-Host "DEBUG: Working with MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
     Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
     Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
 
@@ -98,6 +128,7 @@ function updateMathTools($YYYY)
 function updateMathTools2020($YYYY)
 {
   #call function
+    Write-Host "DEBUG: This is updateMathTools2020 for IDS $YYYY"
     Write-Host "DEBUG: Stopping InDesign CC $YYYY"
     Stop-Service -Name "InDesignServerService x64"
     Get-Process "InDesign*" | Stop-Process -Force
@@ -116,6 +147,7 @@ function updateMathTools2020($YYYY)
     #Copy-Item $output_dir\lic\*.lic -Destination $output_dir\debug\movemen\lic -Force
 
     #production
+    Write-Host "DEBUG: Working with MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
     Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
     Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
 
@@ -137,11 +169,12 @@ If (Test-Path $ids_path_dir\Plug-Ins\movemen)
         Write-Host "MathTools was found"
 
             If ($YYYY -ne "2020"){
+                  Write-Host "DEBUG: Calling updateMathTools $idsYYYY."
                   updateMathTools "$idsYYYY"
               }
             else {
-
-                updateMathTools2020 "$idsYYYY"
+                  Write-Host "DEBUG: Calling updateMathTools2020 $idsYYYY."
+                  updateMathTools2020 "$idsYYYY"
 
             }
 
@@ -183,14 +216,16 @@ Else
             Write-Host "DEBUG: IDS YEAR" $idsYYYY
 
             If ($idsYYYY -ne "2020"){
+                  Write-Host "DEBUG: IDS year is NOT $idsYYYY so running downloadMathTools"
                   downloadMathTools "$idsYYYY"
               }
             else {
-
+                Write-Host "DEBUG: IDS year is $idsYYYY so running downloadMathTools2020"
                 downloadMathTools2020 "$idsYYYY"
 
             }
 
+            Write-Host "DEBUG: Calling detectMathTools $idsYYYY."
             detectMathTools "$idsYYYY"
 
 
