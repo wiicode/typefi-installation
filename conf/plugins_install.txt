@@ -1,5 +1,6 @@
 typefi-plugin-docx##17.0.574.war
-typefi-plugin-id##29.0.709.war
+typefi-plugin-id##31.0.810.war
 typefi-plugin-runscript##7.0.38.war
 typefi-plugin-util##14.0.212.war
-typefi-plugin-xsl##16.0.226.war
+typefi-plugin-xsl##17.0.232.war
+typefi-plugin-validation##1.0.43.war
