@@ -1,32 +1,36 @@
+# MathTools Upgrade script.
+# This script cannot be used if switching major versions of InDesign Server.
+
 $PSVersionTable.PSVersion
 $ErrorActionPreference = "Continue"
-$global:logfile = "$PSScriptRoot\logs\mathtools_upgrade_output.txt"
+$global:logfile = "c:\ops\logs\mathtools_upgrade_output.txt"
 Start-Transcript -path $logfile -Append
 Write-Host "Alpha"
-#check if InDesign CC version exists, and figure out the installation directory
-#2020, Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32
-#2019, Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32
-#2018, Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32
-#2017, Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32
-#
-#Figure out if InDesign is installed and do stuff!
-## Edit this as needed
-$ids2020 = "Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32"
-$ids2019 = "Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32"
-$ids2018 = "Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32"
-$ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32"
-#
-## Edit these as needed ###
-$global:mathtools_version = "3_0_1_079" #Example: "3_0_1_055"
-$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/079" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
-$idsVersions = @("$ids2020","$ids2019","$ids2018","$ids2017") #example, "$ids2019","$ids2018","$ids2017"
-#
 
+########################################################
+########################################################
+## GLOBALS ##
+
+$global:mathtools_version = "3_0_1_080" #Example: "3_0_1_055"
+$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/080" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
+
+
+########################################################
+########################################################
+
+
+
+########################################################
+########################################################
+#
+# Functions
+########################################################
+########################################################
 
 ######## FUNCTION ####################
-function downloadMathTools($YYYY)
+function downloadMathToolsCC($YYYY)
 {
-  Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
+  Write-Host "DEBUG: Downloading MathTools for InDesign CC Server" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
   $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
@@ -34,6 +38,7 @@ function downloadMathTools($YYYY)
   $start_time = Get-Date
 
   New-Item -ItemType directory -Path $output_dir -Force
+   Write-Output "DEBUG: URL for download is $url."
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
 
@@ -50,14 +55,12 @@ function downloadMathTools($YYYY)
             [Environment]::Exit(1)
 
         }
-
-
 }
 
 ######## FUNCTION ####################
-function downloadMathTools2020($YYYY)
+function downloadMathTools($YYYY)
 {
-  Write-Host "DEBUG: Downloading MathTools for InDesign CC" $YYYY
+  Write-Host "DEBUG: Downloading MathTools for InDesign Server" $YYYY
   $mathtools = "MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
   $url = "$mathtools_url/$mathtools"
   $global:output_dir = "$PSScriptRoot\staging\mathtools\$YYYY"
@@ -65,6 +68,7 @@ function downloadMathTools2020($YYYY)
   $start_time = Get-Date
 
   New-Item -ItemType directory -Path $output_dir -Force
+   Write-Output "DEBUG: URL for download is $url."
   Invoke-WebRequest -Uri $url -OutFile $output
   Write-Output "DEBUG: Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
 
@@ -86,27 +90,27 @@ function downloadMathTools2020($YYYY)
 ######## FUNCTION ####################
 function backupMathToolsLicense
 {
-  Write-Host "DEBUG: Copying license file from:" $ids_path_dir
+  Write-Host "DEBUG: Copying license file from:" $idsLocation
   New-Item -ItemType directory -Path $output_dir\lic -Force
-  Copy-Item $ids_path_dir\Plug-Ins\movemen\lic\*.lic -Destination $output_dir\lic -Force
+  Copy-Item $idsLocation\Plug-Ins\movemen\lic\*.lic -Destination $output_dir\lic -Force -ErrorAction SilentlyContinue
 
 }
 
 ######## FUNCTION ####################
-function updateMathTools($YYYY)
+function updateMathToolsCC($YYYY)
 {
-  #call function
+    #call function
     Write-Host "DEBUG: This is updateMathTools for IDS $YYYY"
     Write-Host "DEBUG: Stopping InDesign CC $YYYY"
     Stop-Service -Name "InDesignServerService x64"
     Get-Process "InDesign*" | Stop-Process -Force
-  #call function
+    #call function
     Write-Host "DEBUG: Backing up MathTools License $YYYY"
     backupMathToolsLicense
 
     #main body
     #remove old MathTools
-    Remove-Item $ids_path_dir\Plug-Ins\movemen -Force -Recurse
+    Remove-Item $idsLocation\Plug-Ins\movemen -Force -Recurse
 
     #prepare new MathTools
     #debug
@@ -116,8 +120,8 @@ function updateMathTools($YYYY)
 
     #production
     Write-Host "DEBUG: Working with MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip"
-    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
-    Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
+    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-CC-$YYYY-WIN64.zip -DestinationPath $idsLocation\Plug-Ins -Force
+    Copy-Item  $output_dir\lic\*.lic -Destination $idsLocation\Plug-Ins\movemen\lic -Force  -ErrorAction SilentlyContinue
 
   #call function
     Write-Host "DEBUG: Starting InDesign CC $YYYY"
@@ -125,31 +129,25 @@ function updateMathTools($YYYY)
 
 }
 
-function updateMathTools2020($YYYY)
+function updateMathTools($YYYY)
 {
-  #call function
+    #call function
     Write-Host "DEBUG: This is updateMathTools2020 for IDS $YYYY"
     Write-Host "DEBUG: Stopping InDesign CC $YYYY"
     Stop-Service -Name "InDesignServerService x64"
     Get-Process "InDesign*" | Stop-Process -Force
-  #call function
+    #call function
     Write-Host "DEBUG: Backing up MathTools License $YYYY"
     backupMathToolsLicense
 
     #main body
     #remove old MathTools
-    Remove-Item $ids_path_dir\Plug-Ins\movemen -Force -Recurse
-
-    #prepare new MathTools
-    #debug
-    #New-Item -ItemType directory -Path $output_dir\debug -Force
-    #Expand-Archive -Path $output_dir\MathToolsEESrv-3_0_1_055-CC-$YYYY-WIN64.zip -DestinationPath $output_dir\debug -Force
-    #Copy-Item $output_dir\lic\*.lic -Destination $output_dir\debug\movemen\lic -Force
+    Remove-Item $idsLocation\Plug-Ins\movemen -Force -Recurse
 
     #production
     Write-Host "DEBUG: Working with MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip"
-    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip -DestinationPath $ids_path_dir\Plug-Ins -Force
-    Copy-Item  $output_dir\lic\*.lic -Destination $ids_path_dir\Plug-Ins\movemen\lic -Force
+    Microsoft.PowerShell.Archive\Expand-Archive -Path $output_dir\MathToolsEESrv-$mathtools_version-$YYYY-WIN64.zip -DestinationPath $idsLocation\Plug-Ins -Force
+    Copy-Item  $output_dir\lic\*.lic -Destination $idsLocation\Plug-Ins\movemen\lic -Force -ErrorAction SilentlyContinue
 
   #call function
     Write-Host "DEBUG: Starting InDesign CC $YYYY"
@@ -159,87 +157,71 @@ function updateMathTools2020($YYYY)
 
 
 ######## FUNCTION ####################
-function detectMathTools($YYYY)
+function detectMathTools
 {
 
 #If detected, proceed to update.
 
-If (Test-Path $ids_path_dir\Plug-Ins\movemen)
+If (Test-Path $idsLocation\Plug-Ins\movemen)
     {
-        Write-Host "MathTools was found"
-
-            If ($YYYY -ne "2020"){
-                  Write-Host "DEBUG: Calling updateMathTools $idsYYYY."
-                  updateMathTools "$idsYYYY"
-              }
-            else {
-                  Write-Host "DEBUG: Calling updateMathTools2020 $idsYYYY."
-                  updateMathTools2020 "$idsYYYY"
-
-            }
-
+        Write-Host "DEBUG: OK! MathTools was found."
     }
 
 Else
     {
-
-        Write-Host "Did not find MathTools on this attempt."
-
+        Write-Host "DEBUG: WARN! MathTools was not found."
+        Write-Host "DEBUG: OK! Exiting."
+        exit 0
      }
-
-
 
 }
 
 
-#
-#
+################################################################################################################
+################################################################################################################
 #
 # main body
 #
-#
-#
-#start of loop
+################################################################################################################
+################################################################################################################
 
- foreach ($idsVer in $idsVersions) {
-   "$idsVer = " + $idsVer.length
-   Write-Host "Trying InDesign:" $idsVer
+  $idsregkey = 'HKLM:\SYSTEM\CurrentControlSet\Services\InDesignServerService x64'
+  If (Test-Path $idsregkey) {
+    Write-Host "DEBUG: OK! Adobe InDesign Server Service was found."
+    $regkey = Get-ItemProperty -Path $idsregkey -Name "ImagePath"
+    $value = $regkey.ImagePath
+    $path = $value.Replace("`"","")
+    $folder = Split-Path -Path $path
+    $global:idsMajorVersion = (Get-Item "$folder\InDesignServer.exe").VersionInfo.FileMajorPart
+    $global:idsLocation = $folder
+    Write-Host "DEBUG: Adobe InDesing Server is installed in $idsLocation"
 
-    If (Test-Path $idsVer)
-        {
-            Write-Host "$idsFound"
-            $ids_path_exe = (Get-ItemProperty -LiteralPath "$idsVer").'(default)'
-            Write-Host "DEBUG: IDS EXE" $ids_path_exe
-            $global:ids_path_dir = Split-Path -Path $ids_path_exe
-            Write-Host "DEBUG: IDS DIRECTORY" $ids_path_dir
-            $global:idsYYYY = $ids_path_dir.substring($ids_path_dir.length - 4)
-            Write-Host "DEBUG: IDS YEAR" $idsYYYY
+    #check to see if MathTools is present. If not, the upgrade needs to abort.
+    detectMathTools
 
-            If ($idsYYYY -ne "2020"){
-                  Write-Host "DEBUG: IDS year is NOT $idsYYYY so running downloadMathTools"
-                  downloadMathTools "$idsYYYY"
-              }
-            else {
-                Write-Host "DEBUG: IDS year is $idsYYYY so running downloadMathTools2020"
-                downloadMathTools2020 "$idsYYYY"
+    #if MathTools is detected, we can continue to download the latest version
 
-            }
-
-            Write-Host "DEBUG: Calling detectMathTools $idsYYYY."
-            detectMathTools "$idsYYYY"
+    Switch ($idsMajorVersion)
+      {
+          12 {$idsYYYY = "2017"; "DEBUG: Adobe InDesign Server CC $idsYYYY"; downloadMathToolsCC "$idsYYYY"; updateMathToolsCC "$idsYYYY"}
+          13 {$idsYYYY = "2018"; "DEBUG: Adobe InDesign Server CC $idsYYYY"; downloadMathToolsCC "$idsYYYY"; updateMathToolsCC "$idsYYYY"}
+          14 {$idsYYYY = "2019"; "DEBUG: Adobe InDesign Server CC $idsYYYY"; downloadMathToolsCC "$idsYYYY"; updateMathToolsCC "$idsYYYY"}
+          15 {$idsYYYY = "2020"; "DEBUG: Adobe InDesign Server $idsYYYY"; downloadMathTools "$idsYYYY"; updateMathTools "$idsYYYY"}
+          16 {$idsYYYY = "2021"; "DEBUG: Adobe InDesign Server $idsYYYY"; downloadMathTools "$idsYYYY"; updateMathTools "$idsYYYY"}
+      }
 
 
+  }
 
-        }
+  ELSE {
+    Write-Host "DEBUG: WARN! Adobe InDesign Server Service was not found."
+    Write-Host "DEBUG: OK! Exiting."
+    exit 0
 
-    Else
-        {
+  }
 
-            Write-Host "Did not find InDesign on this attempt."
 
-         }
+   Write-Host "DEBUG: Arrived at the end!"
 
-#end of loop
- }
 
 Stop-Transcript
