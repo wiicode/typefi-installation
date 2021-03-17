@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?origin
+
+  File=basic_template.indd
+  Date=Monday, 13 March 2017, 11:30
+
+  From="Typefi Designer™"
+
+?>
+
+<tps:template xmlns:tps="http://www.typefi.com/TemplateXML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="4.2" xsi:schemaLocation="http://www.typefi.com/TemplateXML http://www.typefi.com/TPS/template/4_2/TemplateXML.xsd">
+    
+    
+    <!-- =================== -->
+    <!-- Document Definition -->
+    <!-- =================== -->
+    
+    <tps:definition tag="documentDef">
+        <tps:documentDef>
+            <tps:facingPages>true</tps:facingPages>
+        </tps:documentDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Character Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Italic</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:font>
+                <tps:name/>
+                <tps:style>Italic</tps:style>
+            </tps:font>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Bold</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:font>
+                <tps:name/>
+                <tps:style>Bold</tps:style>
+            </tps:font>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Cell style test</tps:name>
+            <tps:basedOn>Bold</tps:basedOn>
+            <tps:leading>0 pt</tps:leading>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Footnote Reference</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:font>
+                <tps:name/>
+                <tps:style>Bold</tps:style>
+            </tps:font>
+            <tps:leading>0 pt</tps:leading>
+            <tps:color>
+                C=100 M=0 Y=0 K=0
+            </tps:color>
+        </tps:charStyleDef>
+    </tps:definition>
+    <tps:definition tag="charStyleDef">
+        <tps:charStyleDef>
+            <tps:name>Hyperlink</tps:name>
+            <tps:basedOn>*</tps:basedOn>
+            <tps:leading>0 pt</tps:leading>
+            <tps:color>
+                C=100 M=90 Y=10 K=0
+            </tps:color>
+        </tps:charStyleDef>
+    </tps:definition>
+    
+    
+    <!-- =========================== -->
+    <!-- Paragraph Style Definitions -->
+    <!-- =========================== -->
+    
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>bullet</tps:name>
+            <tps:basedOn>Body Text</tps:basedOn>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>bullet</tps:name>
+                    <tps:basedOn>Body Text</tps:basedOn>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:nextStyle>bullet</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Title</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Title</tps:name>
+                    <tps:font>
+                        <tps:name>Myriad Pro</tps:name>
+                        <tps:style>Bold</tps:style>
+                    </tps:font>
+                    <tps:fontSize>20 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                    <tps:color>
+                        C=100 M=0 Y=0 K=0
+                    </tps:color>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>right</tps:alignment>
+            <tps:spaceAfter>2 mm</tps:spaceAfter>
+            <tps:nextStyle>Title</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Subtitle</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Subtitle</tps:name>
+                    <tps:font>
+                        <tps:name>Myriad Pro</tps:name>
+                        <tps:style>Semibold</tps:style>
+                    </tps:font>
+                    <tps:fontSize>20 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                    <tps:color tint="80 %">
+                        C=100 M=0 Y=0 K=0
+                    </tps:color>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>right</tps:alignment>
+            <tps:spaceAfter>2 mm</tps:spaceAfter>
+            <tps:nextStyle>Subtitle</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Intro</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Intro</tps:name>
+                    <tps:font/>
+                    <tps:fontSize>13 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                    <tps:color tint="90 %">
+                        C=100 M=0 Y=0 K=0
+                    </tps:color>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceAfter>2 mm</tps:spaceAfter>
+            <tps:nextStyle>Intro</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Body Text</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Body Text</tps:name>
+                    <tps:font/>
+                    <tps:leading>0 pt</tps:leading>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:spaceAfter>2 mm</tps:spaceAfter>
+            <tps:nextStyle>Body Text</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    <tps:definition tag="parStyleDef">
+        <tps:parStyleDef>
+            <tps:name>Heading 1</tps:name>
+            <tps:charStyle>
+                <tps:charStyleDef>
+                    <tps:name>Heading 1</tps:name>
+                    <tps:font>
+                        <tps:name>Myriad Pro</tps:name>
+                        <tps:style>Semibold</tps:style>
+                    </tps:font>
+                    <tps:fontSize>16 pt</tps:fontSize>
+                    <tps:leading>0 pt</tps:leading>
+                    <tps:color>
+                        C=100 M=0 Y=0 K=0
+                    </tps:color>
+                </tps:charStyleDef>
+            </tps:charStyle>
+            <tps:alignment>right</tps:alignment>
+            <tps:spaceAfter>2 mm</tps:spaceAfter>
+            <tps:nextStyle>Heading 1</tps:nextStyle>
+        </tps:parStyleDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Table Style Definitions -->
+    <!-- ======================= -->
+    
+    <tps:definition tag="tableStyleDef">
+        <tps:tableStyleDef>
+            <tps:name>Table style</tps:name>
+        </tps:tableStyleDef>
+    </tps:definition>
+    
+    
+    <!-- ================================== -->
+    <!-- Cross-reference Format Definitions -->
+    <!-- ================================== -->
+    
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Full Paragraph</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Text</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Paragraph Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name &amp; Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Text Anchor Name</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    <tps:definition tag="crossRefFormatDef">
+        <tps:crossRefFormatDef>
+            <tps:name>Page Number</tps:name>
+        </tps:crossRefFormatDef>
+    </tps:definition>
+    
+    
+    <!-- ======================= -->
+    <!-- Master Page Definitions -->
+    <!-- ======================= -->
+    
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>IP-Inside pages</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="210 mm" height="297 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="210 mm" height="297 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+                <tps:frames>
+                    <tps:frame type="mainStoryFrame"/>
+                </tps:frames>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    <tps:definition tag="masterSpreadDef">
+        <tps:masterSpreadDef>
+            <tps:name>X-Elements</tps:name>
+            <tps:pageInfo classifier="0">
+                <tps:size width="210 mm" height="297 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+            </tps:pageInfo>
+            <tps:pageInfo classifier="1">
+                <tps:size width="210 mm" height="297 mm"/>
+                <tps:margins top="12.7 mm" left="12.7 mm" right="12.7 mm" bottom="12.7 mm"/>
+            </tps:pageInfo>
+        </tps:masterSpreadDef>
+    </tps:definition>
+    
+    
+    <!-- ============================================= -->
+    <!-- Template Item Definitions (Main Story Frames) -->
+    <!-- ============================================= -->
+    
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>IP-Inside pages:0</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>IP-Inside pages</tps:spreadName>
+                    <tps:spreadSide>0</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="22.5 mm"/>
+            <tps:size width="184.6 mm" height="261.8 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle/>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    <tps:definition tag="templateItemDef">
+        <tps:templateItemDef type="mainStoryFrame">
+            <tps:name>IP-Inside pages:1</tps:name>
+            <tps:partOf>
+                <tps:masterPage>
+                    <tps:spreadName>IP-Inside pages</tps:spreadName>
+                    <tps:spreadSide>1</tps:spreadSide>
+                </tps:masterPage>
+            </tps:partOf>
+            <tps:pos x="12.7 mm" y="22.5 mm"/>
+            <tps:size width="184.6 mm" height="261.8 mm"/>
+            <tps:autoText>
+                <tps:leading>0 pt</tps:leading>
+                <tps:parStyle/>
+                <tps:baselineToFrameGap>0 mm</tps:baselineToFrameGap>
+            </tps:autoText>
+            <tps:rules/>
+        </tps:templateItemDef>
+    </tps:definition>
+    
+    
+    
+    <!-- =================== -->
+    <!-- Element Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="floatingElementDef">
+        <tps:floatingElementDef>
+            <tps:name>float</tps:name>
+        </tps:floatingElementDef>
+    </tps:definition>
+    
+    
+    <!-- ============================ -->
+    <!-- Element Variants Definitions -->
+    <!-- ============================ -->
+    
+    <tps:definition tag="elementVariantDef">
+        <tps:elementVariantDef id="1">
+            <tps:elementFamily>float</tps:elementFamily>
+            <tps:pos x="12.7 mm" y="12.7 mm"/>
+            <tps:size width="47.3 mm" height="7.05833 mm"/>
+            <tps:rules>
+                <tps:rule tag="placementRule" type="pageSide" priority="1">
+                    <tps:placementRule pageSide="left"/>
+                </tps:rule>
+                <tps:rule tag="placementRule" type="pageSide" priority="1">
+                    <tps:placementRule pageSide="right"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="0">
+                    <tps:floatFrameAlignmentRule xRef="left" yRef="top" xBase="variant" yBase="textFrame" topLimit="textFrame" floatXRef="left" floatYRef="top" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="0">
+                    <tps:floatFrameAlignmentRule xRef="left" yRef="middle" xBase="variant" yBase="textFrame" topLimit="textFrame" floatXRef="left" floatYRef="middle" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatFrameAlignmentRule" type="alignment" priority="0">
+                    <tps:floatFrameAlignmentRule xRef="left" yRef="bottom" xBase="variant" yBase="textFrame" topLimit="textFrame" floatXRef="left" floatYRef="bottom" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+                <tps:rule tag="floatLineAlignmentRule" type="alignment" priority="4">
+                    <tps:floatLineAlignmentRule xRef="right" xBase="pageMargin" yBase="baseline" xOffset="-3 mm" topLimit="textFrame" floatXRef="right" floatYRef="top" leftLimit="none" rightLimit="none" bottomLimit="textFrame"/>
+                </tps:rule>
+            </tps:rules>
+            <tps:frames>
+                <tps:frame type="contentFrame"/>
+            </tps:frames>
+            <tps:floatSpacing top="0 mm" left="0 mm" right="0 mm" bottom="0 mm"/>
+        </tps:elementVariantDef>
+    </tps:definition>
+    
+    
+    <!-- =================== -->
+    <!-- Section Definitions -->
+    <!-- =================== -->
+    
+    <tps:definition tag="sectionDef">
+        <tps:sectionDef toc="false" repeating="true">
+            <tps:name>Chapter</tps:name>
+            <tps:masterSpreads>
+                <tps:masterSpread>
+                    <tps:name>IP-Inside pages</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+            </tps:masterSpreads>
+            <tps:fields/>
+        </tps:sectionDef>
+    </tps:definition>
+    <tps:definition tag="sectionDef">
+        <tps:sectionDef toc="false" repeating="true">
+            <tps:name>JIRA_notupdated</tps:name>
+            <tps:masterSpreads>
+                <tps:masterSpread>
+                    <tps:name>IP-Inside pages</tps:name>
+                    <tps:startsOn>either</tps:startsOn>
+                    <tps:filler/>
+                </tps:masterSpread>
+            </tps:masterSpreads>
+            <tps:fields/>
+        </tps:sectionDef>
+    </tps:definition>
+    
+    
+    <!-- ================= -->
+    <!-- Field Definitions -->
+    <!-- ================= -->
+    
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Language</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Document_number</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test1</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test2</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test3</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test4</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test5</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test6</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test7</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+    <tps:definition tag="fieldDef">
+        <tps:fieldDef>
+            <tps:name>Test8</tps:name>
+            <tps:type>text</tps:type>
+            <tps:level>project</tps:level>
+        </tps:fieldDef>
+    </tps:definition>
+</tps:template>
