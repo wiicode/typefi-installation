@@ -13,6 +13,7 @@ $ErrorActionPreference = "Continue"
 $global:currentfile = $MyInvocation.MyCommand.Path
 $global:logfile = "$currentfile.txt"
 $global:typefi = "c:\ProgramData\Typefi"
+
 <#
 -----
 Start Logging
@@ -27,43 +28,25 @@ Set Global  Variables
 -----
 #>
 
-
-
-<#
------
-TYPEFI Server
-Check for
-- Presence of known services
-- Presence of ProgramData independently of services in case InDesign was used
-- Make an API call regardless of the other two just to see what we get.
------
-#>
-
-
 <#
 -----
 INDESIGN SERVER
 -----
 #>
-$ids2020 = "Registry::HKEY_CLASSES_ROOT\CLSID\{24F00A91-FA8D-442E-9A2F-146801EA5896}\LocalServer32"
-$ids2019 = "Registry::HKEY_CLASSES_ROOT\CLSID\{CE7A178C-C019-4749-8FA5-45A847E01EAF}\LocalServer32"
-$ids2018 = "Registry::HKEY_CLASSES_ROOT\CLSID\{74812DB7-FA97-43E0-97F5-87D1E47B76E4}\LocalServer32"
-$ids2017 = "Registry::HKEY_CLASSES_ROOT\CLSID\{C62D9F67-2815-4C5D-9754-5CEAA121CDD8}\LocalServer32"
-$ids2015 = "Registry::HKEY_CLASSES_ROOT\CLSID\{AE4167A3-35E4-4B93-A620-AD088ABEB207}\LocalServer32"
-$idsVersions = @("$ids2020","$ids2019","$ids2018","$ids2017","$ids2015") #example, "$ids2019","$ids2018","$ids2017"
 
+  $idsregkey = 'HKLM:\SYSTEM\CurrentControlSet\Services\InDesignServerService x64'
+  If (Test-Path $idsregkey) {
 
-foreach ($idsVer in $idsVersions) {
-  "$idsVer = " + $idsVer.length
+    Write-Host "DEBUG: OK! Adobe InDesign Server Service was found."
+    $regkey = Get-ItemProperty -Path $idsregkey -Name "ImagePath"
+    $value = $regkey.ImagePath
+    $path = $value.Replace("`"","")
+    $folder = Split-Path -Path $path
+    $global:idsMajorVersion = (Get-Item "$folder\InDesignServer.exe").VersionInfo.FileMajorPart
+    $global:idsLocation = $folder
 
-
-   If (Test-Path $idsVer)
-       {
-
-           $ids_path_exe = (Get-ItemProperty -LiteralPath "$idsVer").'(default)'
-           $global:ids_path_dir = Split-Path -Path $ids_path_exe
-           $global:idsYYYY = $ids_path_dir.substring($ids_path_dir.length - 4)
-           $ids_exe_version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$ids_path_exe").FileVersion
+    $ids_path_exe = "$idsLocation\InDesignServer.exe"
+    $ids_exe_version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$ids_path_exe").FileVersion
 
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
@@ -77,35 +60,39 @@ foreach ($idsVer in $idsVersions) {
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
            Write-Host "InDesign Collector: "
-           Write-Host "-t-> InDesign Server Release:" $idsYYYY
            Write-Host "-t-> InDesign Server Version:" $ids_exe_version
-           Write-Host "-t-> InDesign Server Directory:" $ids_path_dir
-           Write-Host "-t-> InDesign Server Fonts store is:" $ids_fontsize
+           Write-Host "-t-> InDesign Server Directory:" $idsLocation
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
-           $fonts = "$ids_path_dir\Fonts"
+           $fonts = "$idsLocation\Fonts"
            If (Test-Path $fonts) {
+              Write-Host "-t-> InDesign Server Fonts Directory:" $fonts
               #Get size of Adobe Font folder, manifest retrieval is not reliable
-              $ids_fontsize = "{0:N2} MB" -f ((Get-ChildItem $ids_path_dir\Fonts -Recurse | Measure-Object -Property Length -Sum -ErrorAction Stop).Sum / 1MB)
-              Write-Host "-t-> InDesign Server Fonts are:" $ids_fontsize
-              Get-ChildItem $ids_path_dir\Fonts -File | Format-Table Name, LastWriteTime
+              $ids_fontsize = "{0:N2} MB" -f ((Get-ChildItem "$fonts" -Recurse | Measure-Object -Property Length -Sum -ErrorAction Stop).Sum / 1MB)
+              Write-Host "-t-> InDesign Server Fonts take up this much space:" $ids_fontsize
+              Get-ChildItem "$idsLocation\Fonts" -Attributes -Force -EA 0 !Directory -Recurse | Format-Table Name, LastWriteTime, Directory
+              Write-Host "-x-> IDS Fonts"
             }
+
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
-           Write-Host "-t-> InDesign Server Plugins are:"
-           Get-ChildItem $ids_path_dir\Plug-Ins -Dir | Format-Table Name, LastWriteTime
+           Write-Host "-t-> InDesign Server Plugins List:"
+           Get-ChildItem "$idsLocation\Plug-Ins" -Dir | Format-Table Name, LastWriteTime
+           Write-Host "-x-> IDS Plugins"
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
-           Write-Host "-t-> InDesign Server Scripts are:"
-           Get-ChildItem $ids_path_dir\Scripts -File | Format-Table Name, LastWriteTime
+           Write-Host "-t-> InDesign Server Scripts List:"
+           Get-ChildItem "$idsLocation\Scripts" -File | Format-Table Name, LastWriteTime
+           Write-Host "-x-> IDS Scripts"
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
            Write-Host "-t-> InDesign Server Presets are:"
-           Get-ChildItem "$ids_path_dir\Resources\Adobe PDF\settings\mul" -File | Format-Table Name, LastWriteTime
+           Get-ChildItem "$idsLocation\Resources\Adobe PDF\settings\mul" -File | Format-Table Name, LastWriteTime
+           Write-Host "-x-> IDS Presets"
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
@@ -116,7 +103,7 @@ foreach ($idsVer in $idsVersions) {
            Write-Host " "
            Write-Host "-t-> InDesign Server Processes include:"
            #Get-Process -Name *indesign* | Format-Table -Property Path,Name,Id,Company
-           Get-Process -Name *indesign* | Format-Table -Property Name,Id
+           Get-Process -Name *indesign* | Format-Table -Property Name, ID, @{Name='WorkingSet';Expression={($_.WorkingSet64/1MB)}}
            Write-Host " "
            Write-Host " ---------------------               --------------------- "
            Write-Host " "
@@ -160,19 +147,14 @@ foreach ($idsVer in $idsVersions) {
             Write-Host " ---------------------             --------------------- "
             Write-Host " ---------------------             --------------------- "
             Write-Host " "
-       }
 
+ }
    Else
        {
 
           Write-Host "-.. . -... ..- --.DEBUG InDesign Server search complete."
 
         }
-
-#end of loop
-}
-
-
 
 <#
 -----
@@ -295,6 +277,25 @@ If (Test-Path $typefi)
         Write-Host "************************** END **********************************"
         Write-Host "*****************************************************************"
         Write-Host " "
+
+        #engines harvest.
+        Write-Host " "
+        Write-Host " ---------------------               --------------------- "
+        Write-Host " "
+        Write-Host "-t-> Typefi Licenses:"
+        Write-Host " "
+        Write-Host "*****************************************************************"
+        Write-Host "*********************** FILE OUTPUT *****************************"
+        Write-Host "*****************************************************************"
+        Write-Host " "
+        Get-Content $typefi\engines.json
+        Write-Host " "
+        Write-Host "*****************************************************************"
+        Write-Host "************************** END **********************************"
+        Write-Host "*****************************************************************"
+        Write-Host " "
+
+
 
         #Log harvest.
         Write-Host " "
