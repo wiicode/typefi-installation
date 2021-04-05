@@ -1,6 +1,6 @@
 <#
 -----
-Typefi Harvester version 0.1.3
+Typefi Harvester version 0.1.4
 This script will collect Typefi installation information and output it to a file.
 It should run on the Typefi Server installation and any InDesign Engines being used.
 
