@@ -11,8 +11,8 @@ Write-Host "Alpha"
 ########################################################
 ## GLOBALS ##
 
-$global:mathtools_version = "3_0_1_082" #Example: "3_0_1_055"
-$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/082" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
+$global:mathtools_version = "3_0_1_085" #Example: "3_0_1_055"
+$global:mathtools_url = "http://movemen.com/files/downloads/mtv3/085" #do not add trailing slash, example: "http://movemen.com/files/downloads/mtv3/055"
 
 
 ########################################################
